@@ -1,0 +1,111 @@
+##################### Running buildObstacles program ###################################################
+
+usage: ./buildObstacles -i inputflag.inp
+
+Output: ./flag.dat
+#1: node x
+#2: node y
+#3: wall density (1 = wall, 0 = fluid)
+
+##################### Running nusseltNumber program #####################################################
+
+usage: ./nusseltNumber <timeStart> <timeStop> <timeDump> <LX> <LY> <deltaTempBetweenWalls>
+
+timeStart: beginning of time interval of analysis
+timeStop: end of time interval of analysis
+timeDump: integer setting the time interval for the ascii temperature and velocity dumps
+#NOTE: the dumping times for veloconf* and temperature* have to be the same
+LX: system size along x
+LY: system size along y
+deltaTempBetweenWalls = difference between wall temperatures (Tdown - Tup)
+
+Output: ./timeNusseltNumber.dat
+#1: time
+#2: global Nusselt number
+
+
+################ Running nusseltNumberDroplet program ##################################################
+
+usage: ./nusseltNumberDroplet <dir> <dir2> <outDir> <timeStart> <timeStop> <deltaTimeTemp> <pbx> <pby>
+
+dir: delaunayTriggerDir path
+dir2: delaunayNoTriggerDir path
+outDir: output directory path
+#NOTE: one has to create the output directory before the program runs
+timeStart: beginning of time interval of analysis
+timeStop: end of time interval of analysis
+timeDump: integer setting the time interval for the ascii temperature and velocity dumps
+#NOTE: the dumping times for veloconf* and temperature* have to be the same
+pbx: Boolean. Periodic boundary condition along x
+pby: Boolean. Periodic boundary condition along y
+#NOTE: in the Rayleigh-Benard cell pby=0 and pbx=1. Please check the correctness of the input file
+
+Output: ./outDir/timeNusseltNumberDroplets
+#1: time
+#2: i: peculiar droplet index of the given frame
+#3: x-coordinate of the droplet centre of mass
+#4: y-coordinate of the droplet centre of mass
+#5: droplet Nusselt number
+
+Output: ./outDir/timeNusseltNumberDropletsAverage
+#1: time
+#2: average value of droplets Nusselt number
+
+###################### Running deltaAnalysis program ####################################################
+
+usage: ./deltaAnalysis <dir> <outDir> <timeStart> <timeStop> <deltaTime> <dir2> <pbx> <pby>
+
+dir: delaunayTriggerDir path
+dir2: delaunayNoTriggerDir path
+outDir: output directory path
+#NOTE: one has to create the output directory before the program runs
+timeStart: beginning of time interval of analysis
+timeStop: end of time interval of analysis
+deltaTime: time distance between different frames for computing the displacement: it should be a
+	      multiple of the input parameter ncheckdelaunay
+pbx: Boolean. Periodic boundary condition along x
+pby: Boolean. Periodic boundary condition along y
+#NOTE: in the Rayleigh-Benard cell pby=0 and pbx=1. Please check the correctness of the input file
+
+Output: ./outDir/DeltaField
+#1: time
+#2: flag: 1/0 if the droplet belongs to the boundary/bulk of the Delaunay triangulation (present frame)
+#3: flag: 1/0 if the droplet belongs to the boundary/bulk of the Delaunay triangulation (previous frame)
+#4: average droplet size between frame
+#5: i: peculiar droplet index of the given frame
+#6: index: unique label consistent among frames
+#7: x-coordinate of the droplet centre of mass
+#8: y-coordinate of the droplet centre of mass
+#9: x-component of the displacement
+#10: y-component of the displacement
+#11: displacement norm
+#12: natural log of the displacement norm
+#13: flag: 1 if it is the droplet with largest displacement, 0 otherwise
+
+Output: ./outDir/supDeltaNorm
+#1: time
+#2: max (supremum) displacement
+#3: natural log of max (supremum) displacement
+
+####################### Running dropletStats program ####################################################
+
+usage: ./dropletStats <dir> <dir2> <outDir> <timeStart> <timeStop> <deltaTime>
+
+dir: delaunayTriggerDir path
+dir2: delaunayNoTriggerDir path
+outDir: output directory path
+#NOTE: one has to create the output directory before the program runs
+timeStart: beginning of time interval of analysis
+timeStop: end of time interval of analysis
+deltaTime: time distance between different frames for computing the displacement: it should be a
+	      multiple of the input parameter ncheckdelaunay
+
+
+Output: ./outDir/supDeltaNorm
+#1: time
+#2: i: peculiar droplet index of the given frame
+#3: droplet size between at the present frame
+#4: coordination number of the droplet according to the Delaunay triangulation
+#5: flag: 1/0 if the droplet belongs to the boundary/bulk of the Delaunay triangulation (present frame)
+#6: x-coordinate of the droplet centre of mass
+#7: y-coordinate of the droplet centre of mass

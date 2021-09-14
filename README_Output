@@ -1,0 +1,184 @@
+Description of the output files as listed in the Appendix C of the paper
+
+########### Simulations Initialization Files ############
+init_rho1.dat: ascii file, 3 columns
+#1: x coordinate
+#2: y coordinate
+#3: density 1 value
+
+init_rho2.dat: ascii file, 3 columns
+#1: x coordinate
+#2: y coordinate
+#3: density 2 value
+
+init_temperature.dat: ascii file, 3 columns
+#1: x coordinate
+#2: y coordinate
+#3: temperature value
+
+########### Simulations Running Files ############
+########### ASCII FILES
+
+## Densities
+(input options: nout density > 0)
+firstdensity.#.dat: 3 columns
+#1: x coordinate
+#2: y coordinate
+#3: density 1 value
+
+seconddensity.#.dat: 3 columns
+(input options: nout density > 0)
+#1: x coordinate
+#2: y coordinate
+#3: density 2 value
+
+firstdensity.dat: 3 columns
+(input options: nout density > 0)
+#1: x coordinate
+#2: y coordinate
+#3: density 1 value
+
+seconddensity.dat: 3 columns
+(input options: nout density > 0)
+#1: x coordinate
+#2: y coordinate
+#3: density 2 value
+
+## Velocity fields
+veloconf.#.dat: 4 columns
+(input options: nout velocity > 0)
+#1: x coordinate
+#2: y coordinate
+#3: u_x: x component
+#4: u_y: y component
+
+veloconf.dat: 4 columns
+(input options: nout velocity > 0)
+#1: x coordinate
+#2: y coordinate
+#3: u_x: x component
+#4: u_y: y component
+
+u_av.#.dat: 2 columns
+(input options: nout velocity > 0; nout average > 0)
+#1: y coordinate
+#2: u_x: x-component averaged along x
+
+u_av.dat: 2 columns
+(input options: nout velocity > 0; nout average > 0)
+#1: y coordinate
+#2: u_x: x-component averaged along x
+
+## Temperature
+temperature.#.dat: 3 columns
+(input options: nout temperature > 0)
+#1: x coordinate
+#2: y coordinate
+#3: temperature value
+
+temperature.dat: 3 columns
+(input options: nout temperature > 0)
+#1: x coordinate
+#2: y coordinate
+#3: temperature value
+
+timeEnergy.dat: 2 columns
+(input options: write energy file = 1; nout energy > 0)
+#1: time step
+#2: energy
+
+## Stress tensor
+Ptot_xy.#.dat: 6 columns
+(input options: nout tensor > 0)
+#1: x coordinate
+#2: y coordinate
+#3: ideal contribution to pressure
+#4: P^{xx} component of the interaction pressure tensor
+#5: P^{xy} component of the interaction pressure tensor
+#6: P^{yy} component of the interaction pressure tensor
+
+Pxy_ave.#.dat: 5 columns
+(input options: nout tensor > 0; nout average > 0)
+#1: y coordinate
+#2: x-wise average of the ideal contribution to pressure
+#3: P^{xx}-component average along x of the interaction pressure tensor
+#4: P^{xy}-component average along x of the interaction pressure tensor
+#5: P^{yy}-component average along x of the interaction pressure tensor
+
+
+
+########### VTK 2.0 FILES
+(input options: nout density > 0; write vtk file = 1; write vtk file rho1 = 1)
+firstdensity.#.vtk
+firstdensity.vtk
+
+(input options: nout density > 0; write vtk file = 1; write vtk file rho2 = 1)
+seconddensity.#.vtk
+seconddensity.vtk
+
+(input options: nout velocity > 0; write vtk file = 1;)
+veloconf.#.vtk
+
+########### BINARY FILES OF CONFIGURATIONS
+(input options: noutconfig > 0; noutconfigMod = N)
+conf1_#.in
+conf2_#.in
+confG_#.in
+
+########### Plastic Events Trigger Files ############
+########### ASCII FILES
+(input options: ncheckdelaunay > 0)
+
+File: ./delaunayTriggerDir/arisingLinks
+File: ./delaunayTriggerDir/arisingLinksBoudary
+
+Couple of lines separated by a newline that can be used in gnuplot for plotting
+the set of 'arising' links at a given frame.
+The frame can be selected with the 'i' option in gnuplot
+option
+#01: time
+#02: droplet area in the present frame
+#03: number of neighbors in the previous frame
+#04: number of neighbors in the present frame
+#05: x-coordinate of the droplet centre of mass in the present frame
+#06: y-coordinate of the droplet centre of mass in the present frame
+#07: counter: how many times the unique couple of droplets has been involved in an 'arising' event
+#08: unique index for the droplets couple
+#09: time difference with respect to the last recorder 'arising' event for the couple
+#10: unique label of the first droplet
+
+
+File: ./delaunayTriggerDir/breakingLinks
+File: ./delaunayTriggerDir/breakingLinksBoudary
+
+Couple of lines separated by a newline that can be used in gnuplot for plotting the set of 'breaking' links at a given frame. The frame can be selected with the 'i' option in gnuplot
+option
+#01: time
+#02: droplet area in the previous frame
+#03: number of neighbors in the present frame
+#04: number of neighbors in the previous frame
+#05: x-coordinate of the droplet centre of mass in the previous frame
+#06: x-coordinate of the droplet centre of mass in the previous frame
+#07: counter: how many times the unique couple of droplets has been involved in an 'breaking' event
+#08: unique index for the droplets couple
+#09: time difference with respect to the last recorder 'breaking' event for the couple
+#10: unique label of the first/second droplet
+
+File: ./delaunayTriggerDir/nBubblesOut
+#1: time
+#2: number of droplets
+#3: number of detected plastic events
+
+File: ./delaunayTriggerDir/nLinksOut
+#1: time
+#2: number of links at the present frame
+#3: number of links at the previous frame
+
+########### BINARY FILES
+(input options: ncheckdelaunay > 0)
+
+Binary files that are read by the analysis programs deltaAnalysis.cu and dropletStats.cu
+
+File: ./delaunay(No)TriggerDir/delaunayNowTime#
+File: ./delaunay(No)TriggerDir/delaunayPastTime#
+File: ./delaunay(No)TriggerDir/delaunayIsoTriggerTime#

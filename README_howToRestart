@@ -1,0 +1,41 @@
+############## How to perform a simulation restart  ################
+It is assumed you are in the simulation directory
+
+###########################################
+In the case of a terminated simulation
+
+1. Open tlbfind_testCase1_run.inp or tlbfind_testCase2_run.inp and set:
+   nsteps			       = larger value
+   initial velocity perturbation       = 0.
+   post preparation temp               = 0
+
+2. Run the simulation
+
+   $ ./cudatlbfind -i tlbfind_testCase1_run.inp
+   or
+   $ ./cudatlbfind -i tlbfind_testCase2_run.inp
+
+
+############################################
+In the case of a suspended simulation
+
+1. List the last configuration dumped
+
+   $ ls -lrt conf*
+
+2. Assign the name of the intial configuration to the last one
+   For example, if conf#_0.in_0 are the last dumped:
+
+   $ cp conf1_0.in_0 conf1.in_0
+   $ cp conf2_0.in_0 conf2.in_0
+   $ cp confG_0.in_0 confG.in_0
+
+3. Open tlbfind_testCase#_#.inp and set:
+   initial velocity perturbation       = 0.
+   post preparation temp               = 0
+
+4. Run the simulation
+
+   $ ./cudatlbfind -i tlbfind_testCase1_run.inp
+   or
+   $ ./cudatlbfind -i tlbfind_testCase2_run.inp

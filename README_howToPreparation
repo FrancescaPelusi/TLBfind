@@ -1,0 +1,75 @@
+############## How to perform the system preparation step ###############
+It is assumed you are in the root directory of the TLBFind code
+
+1. Change the following variables in the Makefile
+   - CUDASDKDIR: should point at the location of your CUDA installation
+   - ARCH: sm_Mm where 'M' stands for the Major architecture number and 'm'
+   for the minor architecture number 
+
+2. Compile the code for the simulation
+
+   $ make cudatlbfind
+
+3. Compile the code for creating the obstacles along the system's walls
+
+   $ make buildObstacle
+
+4. Create the preparation directory according to the example you wish to reproduce
+
+   $ mkdir -p ./simulations/preparation_1
+   or
+   $ mkdir -p ./simulations/preparation_2
+
+5. Change directory
+
+   $ cd ./simulations/preparation_1
+   or
+   $ cd ./simulations/preparation_2
+
+6. Copy the simulation executable together with the one needed for building
+the obstacles
+
+    $ cp ../../cudatlbfind .
+    $ cp ../../buildObstacle .
+
+7. Copy the input file for creating the obstacles
+
+   $ cp ../../inputflag_testCase1.inp .
+   or
+   $ cp ../../inputflag_testCase2.inp .
+
+8. Create the obstacles file
+
+   $ ./buildObstacle -i inputflag_testCase1.inp
+   or
+   $ ./buildObstacle -i inputflag_testCase2.inp
+
+9. Copy the input files for running the preparation simulations
+
+   $ cp ../../tlbfind_testCase1_preparation.inp .
+   or
+   $ cp ../../tlbfind_testCase2_preparation.inp .
+
+10. Make sure to change the 'Which GPU' parameter in the preparation input
+   according to your needs
+
+11. Run the preparation simulation
+
+   $ ./cudatlbfind -i tlbfind_testCase1_preparation.inp
+   or
+   $ ./cudatlbfind -i tlbfind_testCase2_preparation.inp   
+
+
+###############################################
+Find below the instructions to produce plots in Fig.3 of the paper with the
+data from the first example.
+
+1. Top panel
+
+   $ cp ../../firstDensity_preparation_initial.gnu .
+   $ gnuplot firstDensity_preparation_initial.gnu
+
+2. Bottom panel
+
+   $ cp ../../firstDensity_preparation_final.gnu .
+   $ gnuplot firstDensity_preparation_final.gnu
