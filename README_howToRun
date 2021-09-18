@@ -3,8 +3,8 @@ It is assumed you are in the root directory of the TLBFind code
 
 1. Compile the programs for the analysis below
 
-   $ make displacementAnalysis
-   $ make nusseltNumberDroplets
+   $ make deltaAnalysis
+   $ make nusseltNumberDroplet
 
 2. Create the run directories
 
