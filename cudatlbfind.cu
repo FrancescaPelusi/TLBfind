@@ -203,16 +203,6 @@ int roughWallDown=TRUE, roughWallUp=TRUE;
 #define g12 (G12)
 #define sg12 (sG12)
 
-//////////////////////////////////////////////////////////////
-///////PARAMETERS AS in equation set (2) of our JCP //////////
-//////////////////////////////////////////////////////////////
-////If you find an error, please contact
-////M. Bernaschi: massimo.bernaschi@cnr.it
-////M. Lulli: lulli@sustech.edu.cn
-////F. Pelusi: f.pelusi@fz-juelich.de
-////M. Sbragaglia: sbragaglia@roma2.infn.it ////
-//////////////////////////////////////////////////////////////
-
 long idum;
 
 typedef struct {
