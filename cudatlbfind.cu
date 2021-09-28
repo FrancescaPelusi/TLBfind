@@ -3043,7 +3043,7 @@ void SNAPSHOT(REAL *rho1pre,REAL *rho2pre, REAL*pxy, REAL *pxykin){
           }
 
           if(dooutvtkrho2 == TRUE){
-            snprintf(filename,sizeof(filename),"firstdensity2.%d.vtk",icount[VTK]);
+            snprintf(filename,sizeof(filename),"seconddensity.%d.vtk",icount[VTK]);
             fout2 = fopen(filename, "w");
 
             fprintf(fout2,"# vtk DataFile Version 2.0\n");

@@ -5,7 +5,7 @@ usage: ./buildObstacles -i inputflag.inp
 Output: ./flag.dat
 #1: node x
 #2: node y
-#3: wall density (1 = wall, 0 = fluid)
+#3: wall density (1 = fluid, 0 = wall)
 
 ##################### Running nusseltNumber program #####################################################
 

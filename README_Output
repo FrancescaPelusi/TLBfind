@@ -97,7 +97,24 @@ Ptot_xy.#.dat: 6 columns
 #5: P^{xy} component of the interaction pressure tensor
 #6: P^{yy} component of the interaction pressure tensor
 
+Ptot_xy.dat: 6 columns
+(input options: nout tensor > 0)
+#1: x coordinate
+#2: y coordinate
+#3: ideal contribution to pressure
+#4: P^{xx} component of the interaction pressure tensor
+#5: P^{xy} component of the interaction pressure tensor
+#6: P^{yy} component of the interaction pressure tensor
+
 Pxy_ave.#.dat: 5 columns
+(input options: nout tensor > 0; nout average > 0)
+#1: y coordinate
+#2: x-wise average of the ideal contribution to pressure
+#3: P^{xx}-component average along x of the interaction pressure tensor
+#4: P^{xy}-component average along x of the interaction pressure tensor
+#5: P^{yy}-component average along x of the interaction pressure tensor
+
+Pxy_ave.dat: 5 columns
 (input options: nout tensor > 0; nout average > 0)
 #1: y coordinate
 #2: x-wise average of the ideal contribution to pressure
@@ -110,11 +127,9 @@ Pxy_ave.#.dat: 5 columns
 ########### VTK 2.0 FILES
 (input options: nout density > 0; write vtk file = 1; write vtk file rho1 = 1)
 firstdensity.#.vtk
-firstdensity.vtk
 
 (input options: nout density > 0; write vtk file = 1; write vtk file rho2 = 1)
 seconddensity.#.vtk
-seconddensity.vtk
 
 (input options: nout velocity > 0; write vtk file = 1;)
 veloconf.#.vtk
