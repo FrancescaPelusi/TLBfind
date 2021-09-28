@@ -3,8 +3,9 @@ It is assumed you are in the root directory of the TLBFind code
 
 1. Change the following variables in the Makefile
    - CUDASDKDIR: should point at the location of your CUDA installation
-   - ARCH: sm_Mm where 'M' stands for the Major architecture number and 'm'
-   for the minor architecture number 
+   - ARCH: sm_Mm. Change according to your GPU. You can find the values of
+     	   'M' and 'm' from the 'compute capability' M.m which are listed
+	   in the website https://developer.nvidia.com/cuda-gpus
 
 2. Compile the code for the simulation
 
@@ -16,15 +17,15 @@ It is assumed you are in the root directory of the TLBFind code
 
 4. Create the preparation directory according to the example you wish to reproduce
 
-   $ mkdir -p ./simulations/preparation_1
+   $ mkdir -p ./simulations/preparation_flat
    or
-   $ mkdir -p ./simulations/preparation_2
+   $ mkdir -p ./simulations/preparation_rough
 
 5. Change directory
 
-   $ cd ./simulations/preparation_1
+   $ cd ./simulations/preparation_flat
    or
-   $ cd ./simulations/preparation_2
+   $ cd ./simulations/preparation_rough
 
 6. Copy the simulation executable together with the one needed for building
 the obstacles
@@ -34,30 +35,30 @@ the obstacles
 
 7. Copy the input file for creating the obstacles
 
-   $ cp ../../inputflag_testCase1.inp .
+   $ cp ../../inputflag_testCaseFlat.inp .
    or
-   $ cp ../../inputflag_testCase2.inp .
+   $ cp ../../inputflag_testCaseRough.inp .
 
 8. Create the obstacles file
 
-   $ ./buildObstacle -i inputflag_testCase1.inp
+   $ ./buildObstacle -i inputflag_testCaseFlat.inp
    or
-   $ ./buildObstacle -i inputflag_testCase2.inp
+   $ ./buildObstacle -i inputflag_testCaseRough.inp
 
 9. Copy the input files for running the preparation simulations
 
-   $ cp ../../tlbfind_testCase1_preparation.inp .
+   $ cp ../../tlbfind_testCaseFlat_preparation.inp .
    or
-   $ cp ../../tlbfind_testCase2_preparation.inp .
+   $ cp ../../tlbfind_testCaseRough_preparation.inp .
 
 10. Make sure to change the 'Which GPU' parameter in the preparation input
    according to your needs
 
 11. Run the preparation simulation
 
-   $ ./cudatlbfind -i tlbfind_testCase1_preparation.inp
+   $ ./cudatlbfind -i tlbfind_testCaseFlat_preparation.inp
    or
-   $ ./cudatlbfind -i tlbfind_testCase2_preparation.inp   
+   $ ./cudatlbfind -i tlbfind_testCaseRough_preparation.inp   
 
 
 ###############################################

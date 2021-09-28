@@ -8,15 +8,15 @@ It is assumed you are in the root directory of the TLBFind code
 
 2. Create the run directories
 
-   $ mkdir ./simulations/run_1
+   $ mkdir ./simulations/run_flat
    or
-   $ mkdir ./simulations/run_2
+   $ mkdir ./simulations/run_rough
 
 3. Change directory
 
-   $ cd ./simulations/run_1
+   $ cd ./simulations/run_flat
    or
-   $ cd ./simulations/run_2
+   $ cd ./simulations/run_rough
 
 4. Copy the simulation executable
 
@@ -24,24 +24,24 @@ It is assumed you are in the root directory of the TLBFind code
 
 5. Copy the input files for running the simulations
 
-   $ cp ../../tlbfind_testCase1_run.inp .
+   $ cp ../../tlbfind_testCaseFlat_run.inp .
    or
-   $ cp ../../tlbfind_testCase2_run.inp .
+   $ cp ../../tlbfind_testCaseRough_run.inp .
 
 6. Copy the necessary files, i.e. obstacles and populations, from the
 preparation folders
 
-    $ cp ../preparation_1/flag.dat .
-    $ cp ../preparation_1/conf1.in_0 .
-    $ cp ../preparation_1/conf2.in_0 .
-    $ cp ../preparation_1/confG.in_0 .
+    $ cp ../preparation_flat/flag.dat .
+    $ cp ../preparation_flat/conf1.in_0 .
+    $ cp ../preparation_flat/conf2.in_0 .
+    $ cp ../preparation_flat/confG.in_0 .
 
     or
 
-    $ cp ../preparation_2/flag.dat .
-    $ cp ../preparation_2/conf1.in_0 .
-    $ cp ../preparation_2/conf2.in_0 .
-    $ cp ../preparation_2/confG.in_0 .
+    $ cp ../preparation_rough/flag.dat .
+    $ cp ../preparation_rough/conf1.in_0 .
+    $ cp ../preparation_rough/conf2.in_0 .
+    $ cp ../preparation_rough/confG.in_0 .
 
 7. Create the 'dumpcount.in' file
 
@@ -51,9 +51,9 @@ preparation folders
 
 8. Run the simulation
 
-   $ ./cudatlbfind -i tlbfind_testCase1_run.inp
+   $ ./cudatlbfind -i tlbfind_testCaseFlat_run.inp
    or
-   $ ./cudatlbfind -i tlbfind_testCase2_run.inp
+   $ ./cudatlbfind -i tlbfind_testCaseRough_run.inp
 
 
 ###############################################
@@ -86,7 +86,7 @@ Find below the instructions to produce the snapshot in Fig.6(b) of the paper.
 Measure of droplet Nusselt number at fixed time
 See README_Analysis for more details on using nusseltNumberDroplets program.
 
-    $ cp ../../nusseltNumberDroplets .
+    $ cp ../../nusseltNumberDroplet .
     $ cp ../../nusseltNumberDroplets_map.gnu .    
     $ mkdir nusseltDroplets
     $ ./nusseltNumberDroplet delaunayTriggerDir delaunayNoTriggerDir nusseltDroplets 350000 350000 1000 1 0
