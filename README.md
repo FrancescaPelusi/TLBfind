@@ -2,7 +2,7 @@
 
 TLBfind is a open-source software for simulations of
 concentrated emulsions with finite-size droplet under
-thermal convection. This code lays his foundations on
+thermal convection. This code lays foundations on
 a multi-component Shan-Chen lattice Boltzmann model.
 
 The code has been written by
@@ -22,16 +22,17 @@ The code is licensed under the MIT License.
 
 ### Structure
 
-TLBfind is supplied as a main UNIX directory. Here the user can find:
-- the source code file cudatlbfind.cu
-- the 'tlbfind_testCase*' input files, containing different test cases that can
-  help the user to edit new input files (see README_hoWTo* file for further details)
-- analysis programs (see README_hoWToRun file for further details)
-- the preprint version of the article (https://arxiv.org/pdf/2109.12565)
-- gnuplot scripts to reproduce figures in the paper (see README_hoWTo* file for
+TLBfind is supplied as a single directory. Here the user can find:
+- the preprint version of the article (`TLBfind_paper.pdf`, https://arxiv.org/pdf/2109.12565)
+- the source code file `cudatlbfind.cu`
+- the `tlbfind_testCase*` input files, containing different test cases explained in the
+  article that can help the user to edit new input files (see `README_hoWTo*` file for
+  further details)
+- analysis programs (see `README_hoWToRun` file for further details)
+- gnuplot scripts to reproduce figures in the paper (see `README_hoWTo*` file for
   further details)
 
 ### Compiling and executing TLBfind
 
-To run and compile TLBfind, follow the instructions in the README_howToPreparation
+To run and compile TLBfind, follow the instructions in the `README_howToPreparation`
 files.
