@@ -22,14 +22,13 @@ The code is licensed under the MIT License.
 
 ### Structure
 
-TLBfind is supplied as a single directory. Here the user can find:
-- the preprint version of the article (`TLBfind_paper.pdf`, https://arxiv.org/pdf/2109.12565)
-- the source code file `cudatlbfind.cu`
-- `tlbfind_testCase*.inp` input files, containing different test cases explained in the
+TLBfind is supplied as some directories. Here the user can find:
+- `/paper/` contains the preprint version of the article (https://arxiv.org/pdf/2109.12565)
+- `/code/` countains all code sources (tha main file is `cudatlbfind.cu`) and analysis programs: `*.cu` and `*.c` (see `README_analysis` file for details)
+- `/inputFiles/tlbfind_testCase*.inp` contains input files for different test cases explained in the
   article that can help the user to edit new input files (see `README_hoWTo*` files for
   details)
-- analysis programs: `*.cu` and `*.c` (see `README_analysis` file for details)
-- gnuplot scripts to reproduce figures in the paper (see `README_hoWTo*` files for
+- `images` contains gnuplot scripts to reproduce figures in the paper (see `README_hoWTo*` files for
   details)
 
 ### Compiling and executing TLBfind
