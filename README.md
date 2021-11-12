@@ -28,7 +28,7 @@ TLBfind is supplied as some directories. Here the user can find:
 - `/inputFiles/tlbfind_testCase*.inp` contains input files for different test cases explained in the
   article that can help the user to edit new input files (see `README_hoWTo*` files for
   details)
-- `images` contains gnuplot scripts to reproduce figures in the paper (see `README_hoWTo*` files for
+- `/images/` contains gnuplot scripts to reproduce figures in the paper (see `README_hoWTo*` files for
   details)
 
 ### Compiling and executing TLBfind
