@@ -3941,6 +3941,7 @@ for(i=0;i<=nxhost+1;i++){
 
   pop_type *deviceTemporaneoF1;
   pop_type *deviceTemporaneoF2;
+  pop_type *deviceTemporaneoG;
 
   int  *flag;
   int  *d_flag;
@@ -4483,15 +4484,19 @@ for(i=0;i<=nxhost+1;i++){
 	printf("You're not in a post-preparation run, so remember to set perturbation amplitude equal to zero! \n");
 	inithydro(u1pre,v1pre,rho1pre,u2pre,v2pre,utot,vtot,rho2pre,initcond,myid,PERTURB_VELO_AMPLITUDE);
 	inithydro_thermal(temperaturepre,initcondG,deviceStructBndUpG,deviceStructBndDownG,Tup,Tdown,myid);
-
+	
 	restore(f1,"conf1.in",myid);
 	restore(f2,"conf2.in",myid);
 	restore(g,"confG.in",myid);
-	
-	inithydro_thermal(temperaturepre,initcondG,deviceStructBndUpG,deviceStructBndDownG,Tup,Tdown,myid);
+
+	Device_SafeMemoryAlloc(deviceTemporaneoG, pop_type, 1);
+	Device_SafeMemoryCopyToDevice(deviceTemporaneoG, &g, pop_type, 1);
+	rhocomp(temperaturepre,deviceTemporaneoG);
 	  
 	equili_thermal(temperaturepre,deviceStructGeq);
 	initpop(deviceStructG,deviceStructGeq);
+
+	Device_SafeMemoryCopyFromDevice(&g, deviceTemporaneoG, pop_type, 1);
       }
 
     }else{
@@ -4930,6 +4935,7 @@ for(i=0;i<=nxhost+1;i++){
 
   Device_SafeMemoryFree(deviceTemporaneoF1);
   Device_SafeMemoryFree(deviceTemporaneoF2);
+  Device_SafeMemoryFree(deviceTemporaneoG);
   
 
   Free(pxx);
