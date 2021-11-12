@@ -9,12 +9,14 @@ It is assumed you are in the root directory of the TLBFind code
 
 2. Compile the code for the simulation
 
+   $ cd code/
    $ make cudatlbfind
 
 3. Compile the code for creating the obstacles along the system's walls
 
    $ make buildObstacle
-
+   $ cd ..
+   
 4. Create the preparation directory according to the example you wish to reproduce
 
    $ mkdir -p ./simulations/preparation_flat
@@ -30,14 +32,14 @@ It is assumed you are in the root directory of the TLBFind code
 6. Copy the simulation executable together with the one needed for building
 the obstacles
 
-    $ cp ../../cudatlbfind .
-    $ cp ../../buildObstacle .
+    $ cp ../../code/cudatlbfind .
+    $ cp ../../code/buildObstacle .
 
 7. Copy the input file for creating the obstacles
 
-   $ cp ../../inputflag_testCaseFlat.inp .
+   $ cp ../../inputFiles/inputflag_testCaseFlat.inp .
    or
-   $ cp ../../inputflag_testCaseRough.inp .
+   $ cp ../../inputFiles/inputflag_testCaseRough.inp .
 
 8. Create the obstacles file
 
@@ -47,9 +49,9 @@ the obstacles
 
 9. Copy the input files for running the preparation simulations
 
-   $ cp ../../tlbfind_testCaseFlat_preparation.inp .
+   $ cp ../../inputFiles/tlbfind_testCaseFlat_preparation.inp .
    or
-   $ cp ../../tlbfind_testCaseRough_preparation.inp .
+   $ cp ../../inputFiles/tlbfind_testCaseRough_preparation.inp .
 
 10. Make sure to change the 'Which GPU' parameter in the preparation input
    according to your needs
@@ -67,10 +69,10 @@ data from the first example.
 
 1. Top panel
 
-   $ cp ../../firstDensity_preparation_initial.gnu .
+   $ cp ../../images/firstDensity_preparation_initial.gnu .
    $ gnuplot firstDensity_preparation_initial.gnu
 
 2. Bottom panel
 
-   $ cp ../../firstDensity_preparation_final.gnu .
+   $ cp ../../images/firstDensity_preparation_final.gnu .
    $ gnuplot firstDensity_preparation_final.gnu

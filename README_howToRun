@@ -1,11 +1,14 @@
-############## How to perform the simulation step ################
+############## AAHow to perform the simulation step ################
 It is assumed you are in the root directory of the TLBFind code
 
 1. Compile the programs for the analysis below
 
+   $ cd code/
    $ make deltaAnalysis
    $ make nusseltNumberDroplet
-
+   $ make nusseltNumber
+   $ cd ..
+   
 2. Create the run directories
 
    $ mkdir ./simulations/run_flat
@@ -20,13 +23,13 @@ It is assumed you are in the root directory of the TLBFind code
 
 4. Copy the simulation executable
 
-   $ cp ../../cudatlbfind .
+   $ cp ../../code/cudatlbfind .
 
 5. Copy the input files for running the simulations
 
-   $ cp ../../tlbfind_testCaseFlat_run.inp .
+   $ cp ../../inputFiles/tlbfind_testCaseFlat_run.inp .
    or
-   $ cp ../../tlbfind_testCaseRough_run.inp .
+   $ cp ../../inputFiles/tlbfind_testCaseRough_run.inp .
 
 6. Copy the necessary files, i.e. obstacles and populations, from the
 preparation folders
@@ -61,8 +64,8 @@ Find below the instructions to produce the snapshot in Fig.5 of the paper.
 Measure of droplet displacement field at fixed time
 See README_Analysis for more details on using deltaAnalysis program.
 
-    $ cp ../../deltaAnalysis .
-    $ cp ../../firstDensity_run.gnu .
+    $ cp ../../code/deltaAnalysis .
+    $ cp ../../images/firstDensity_run.gnu .
     $ mkdir displacementAnalysis
     $ ./deltaAnalysis delaunayTriggerDir/ displacementAnalysis 350000 350000 1000 delaunayNoTriggerDir/ 1 0
 
@@ -74,8 +77,8 @@ Find below the instructions to produce the snapshot in Fig.6(a) of the paper.
 Measure of the macroscopic Nusselt number as a function of time
 See README_Analysis for more details on using nusseltNumber program.
 
-    $ cp ../../nusseltNumber .
-    $ cp ../../nusselt.gnu .
+    $ cp ../../code/nusseltNumber .
+    $ cp ../../images/nusselt.gnu .
     $ ./nusseltNumber 0 1000000 1000 947 431 1.
 
     $ gnuplot nusselt.gnu
@@ -86,8 +89,8 @@ Find below the instructions to produce the snapshot in Fig.6(b) of the paper.
 Measure of droplet Nusselt number at fixed time
 See README_Analysis for more details on using nusseltNumberDroplets program.
 
-    $ cp ../../nusseltNumberDroplet .
-    $ cp ../../nusseltNumberDroplets_map.gnu .    
+    $ cp ../../code/nusseltNumberDroplet .
+    $ cp ../../images/nusseltNumberDroplets_map.gnu .    
     $ mkdir nusseltDroplets
     $ ./nusseltNumberDroplet delaunayTriggerDir delaunayNoTriggerDir nusseltDroplets 350000 350000 1000 1 0
 
