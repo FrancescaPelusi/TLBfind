@@ -24,7 +24,7 @@ The code is licensed under the MIT License.
 
 TLBfind is supplied as some directories. Here the user can find:
 - `/paper/` contains the preprint version of the article (https://arxiv.org/pdf/2109.12565)
-- `/code/` countains all code sources (tha main file is `cudatlbfind.cu`) and analysis programs: `*.cu` and `*.c` (see `README_analysis` file for details)
+- `/code/` countains code sources (tha main file is `cudatlbfind.cu`) and analysis programs `*.cu` and `*.c` (see `README_analysis` file for details)
 - `/inputFiles/` contains input files `tlbfind_testCase*.inp` for different test cases explained in the
   article that can help the user to edit new input files (see `README_hoWTo*` files for
   details)
