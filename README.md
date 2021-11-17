@@ -1,7 +1,7 @@
 # TLBfind
 
-TLBfind is a open-source software for simulations of
-concentrated emulsions with finite-size droplet under
+TLBfind is open-source software for simulations of
+concentrated emulsions with finite-size droplets under
 thermal convection. This code lays foundations on
 a multi-component Shan-Chen lattice Boltzmann model.
 
