@@ -3123,45 +3123,44 @@ void SNAPSHOT_THERMAL(REAL *rho1pre){
   }
   
   
-
   if(dooutvtktemperature==1) {
-
-        if(nouttemperature>0 && (istep%nouttemperature)==0){
-          if(dooutvtktemperature == TRUE){
-            snprintf(filename,sizeof(filename),"temperature.%d.vtk",icount[VTK]);
-            fout1 = fopen(filename, "w");
-
-            fprintf(fout1,"# vtk DataFile Version 2.0\n");
-            fprintf(fout1,"CAMPO\n");
-            fprintf(fout1,"BINARY\n");
-            fprintf(fout1,"DATASET STRUCTURED_POINTS\n");
-            fprintf(fout1,"DIMENSIONS %d %d %d\n",nx,ny,1);
-            fprintf(fout1,"ORIGIN %d %d %d\n",0,0,0);
-            fprintf(fout1,"SPACING 1 1 1\n");
-            fprintf(fout1,"POINT_DATA %d\n",nx*ny*1);
-            fprintf(fout1,"SCALARS rho1 double\n");
-            fprintf(fout1,"LOOKUP_TABLE default\n");
-
-            for (j=1;j<=ny;j++){
-              for (i=1;i<=nx;i++){
-                idx0=j+(ny+2)*i;
-                uint64_t *swapEndianAddr = (uint64_t *)(rho1pre + idx0);
-                uint64_t swapEndian = htobe64(*swapEndianAddr);
-                fwrite(&swapEndian, sizeof(uint64_t), 1, fout1);
-              }
-            }
-
-            fclose(fout1);
-          }
-
-        }
- 
-	if(dooutvtk == 0){
-	  icount[VTK]++;
+    
+    if(nouttemperature>0 && (istep%nouttemperature)==0){
+      if(dooutvtktemperature == TRUE){
+	snprintf(filename,sizeof(filename),"temperature.%d.vtk",icount[VTK]);
+	fout1 = fopen(filename, "w");
+	
+	fprintf(fout1,"# vtk DataFile Version 2.0\n");
+	fprintf(fout1,"CAMPO\n");
+	fprintf(fout1,"BINARY\n");
+	fprintf(fout1,"DATASET STRUCTURED_POINTS\n");
+	fprintf(fout1,"DIMENSIONS %d %d %d\n",nx,ny,1);
+	fprintf(fout1,"ORIGIN %d %d %d\n",0,0,0);
+	fprintf(fout1,"SPACING 1 1 1\n");
+	fprintf(fout1,"POINT_DATA %d\n",nx*ny*1);
+	fprintf(fout1,"SCALARS rho1 double\n");
+	fprintf(fout1,"LOOKUP_TABLE default\n");
+	
+	for (j=1;j<=ny;j++){
+	  for (i=1;i<=nx;i++){
+	    idx0=j+(ny+2)*i;
+	    uint64_t *swapEndianAddr = (uint64_t *)(rho1pre + idx0);
+	    uint64_t swapEndian = htobe64(*swapEndianAddr);
+	    fwrite(&swapEndian, sizeof(uint64_t), 1, fout1);
+	  }
 	}
-
+	
+	fclose(fout1);
+      }
+      
+    }
+    
+    if(dooutvtk == 0){
+      icount[VTK]++;
+    }
+    
   }
-
+ 
 #if defined(SNAPSHOTFROMGPU)
   Free(rho1pre);
 #endif
@@ -4178,8 +4177,10 @@ for(i=0;i<=nxhost+1;i++){
   if(noutave > 0 && noutave<nout){
     nout=noutave;
   }
-  if(nouttemperature%nout) {
+  if(useTHERMAL){
+    if(nouttemperature%nout) {
       writelog(TRUE,APPLICATION_RC,"nout temperature is not an exact multiplier of nout\n!");
+    }
   }
 
   if(noutdens%nout) {
