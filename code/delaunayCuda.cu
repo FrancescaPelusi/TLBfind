@@ -3730,8 +3730,8 @@ extern int delaunayTriggerV4(REAL *d_rho, int *d_flagObstacle,
     sumLinksNow = sumLinksByThrust(d_linksCountNow);
     sumLinksPast = sumLinksByThrust(d_linksCountPast);
     
-    printf("sumLinksNow: %d, sumLinksPast: %d\n",
-	   sumLinksNow, sumLinksPast);
+//    printf("sumLinksNow: %d, sumLinksPast: %d\n",
+//	   sumLinksNow, sumLinksPast);
     
     fprintf(nLinksOut, "%d %d %d\n", 
 	    time, sumLinksNow, sumLinksPast);
@@ -4272,11 +4272,11 @@ extern int labelling(int h_nla, int *d_spin,
       device_function_analysis_K<<<grid,block>>>(d_label        );
           
       cudaMemcpy(h_flag,d_flag,mem_1,cudaMemcpyDeviceToHost);
-      cudaThreadSynchronize();
+      cudaDeviceSynchronize();
     }
     
     device_function_shift_label<<<grid,block>>>(d_label);
-    cudaThreadSynchronize();
+    cudaDeviceSynchronize();
 
     return 0;
 }

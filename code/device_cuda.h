@@ -45,7 +45,7 @@
 #define Device_DeclareKernel(ker, params)                                    __global__ void ker(params)
 
 
-#define Device_Synchronize()                                                 cudaThreadSynchronize()
+#define Device_Synchronize()                                                 cudaDeviceSynchronize()
 
 #define Device_ExecuteKernel(ker)                                            ker<<< sBlocksNum, sThreadsNum >>>
 

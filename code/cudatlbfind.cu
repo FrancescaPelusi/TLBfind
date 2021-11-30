@@ -4829,9 +4829,9 @@ for(i=0;i<=nxhost+1;i++){
                                    pbcx, pbcy, delaunayDebug);
       
       if(dTrigger == 1){
-	printf("Flag isomorphism:  %d\n", dTrigger);
+//	printf("Flag isomorphism:  %d\n", dTrigger);
       }else{
-	printf("Flag isomorphism: 0 \n");
+//	printf("Flag isomorphism: 0 \n");
       }
     }
 
