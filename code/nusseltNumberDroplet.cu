@@ -98,7 +98,7 @@ int main(int argc, char **argv){
     scalarField2D_Free(tempDroplets);
     scalarField2D_Free(deltaTempCell);
     scalarField2D_Free(temperature);
-
+    scalarField2D_Free(gradTempDroplets);
     scalarField2D_Free(veloDroplets);
     scalarField2D_Free(velocityZ);
 
