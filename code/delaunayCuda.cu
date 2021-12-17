@@ -473,6 +473,8 @@ extern int scalarField2D_computeAndPrintNusseltNumberDroplets(const char *outNam
 
   fflush(out);
   fflush(outTot);
+  fclose(out);
+  fclose(outTot);
 
   return 0;
 }
