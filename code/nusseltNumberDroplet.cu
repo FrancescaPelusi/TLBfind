@@ -81,10 +81,10 @@ int main(int argc, char **argv){
     scalarField2D *deltaTempCell = scalarField2D_Alloc(Now->nBubbles);
     scalarField2D *gradTempDroplets = scalarField2D_Alloc(Now->nBubbles);
 
-    snprintf(fileNameTEMP, sizeof(fileNameTEMP),"temperature.%d.dat", ((time/deltaTime)-1));
+    snprintf(fileNameTEMP, sizeof(fileNameTEMP),"temperature.%d.dat", ((time/deltaTime)));
     printf("%s\n", fileNameTEMP);
     
-    snprintf(fileNameVELO, sizeof(fileNameVELO),"veloconf.%d.dat", ((time/deltaTime)-1));
+    snprintf(fileNameVELO, sizeof(fileNameVELO),"veloconf.%d.dat", ((time/deltaTime)));
     printf("%s\n", fileNameVELO);
     
     scalarField2D_readTemperatureFromFile(fileNameTEMP, temperature, LX, LY);
