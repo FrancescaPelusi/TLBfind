@@ -51,7 +51,6 @@ tauG				    = 1.0
 alphaG				    = 0.0000124
 Tup				    = -0.5
 Tdown				    = 0.5
-Tamplitude			    = 0.0
 temperature initialization	    = 2
 initial velocity perturbation	    = 0.0001
 post preparation temp 		    = 1
